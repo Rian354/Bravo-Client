@@ -1,2 +1,2 @@
 # Bravo
-Hackathon Submission for NASA Space Apps 2023
+Frontend Hackathon Submission for NASA Space Apps 2023
