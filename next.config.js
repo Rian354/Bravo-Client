@@ -9,11 +9,9 @@ const nextConfig = {
     },
     distDir: "bravo",
     trailingSlash: true,
+    output: 'export',
     typescript: {
-      // !! WARN !!
-      // Dangerously allow production builds to successfully complete even if
-      // your project has type errors.
-      // !! WARN !!
+      // !! TBD - To be removed !!
       ignoreBuildErrors: true,
     },
 }

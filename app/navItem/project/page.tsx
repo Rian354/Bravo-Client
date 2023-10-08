@@ -2,20 +2,10 @@
 import React from "react"
 import {
   CaretSortIcon,
-  ChevronDownIcon,
   DotsHorizontalIcon,
 } from "@radix-ui/react-icons"
 import {
   ColumnDef,
-  ColumnFiltersState,
-  SortingState,
-  VisibilityState,
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable,
 } from "@tanstack/react-table"
 
 import axios from "axios"
@@ -32,8 +22,9 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { BRAVO_PROJECT_ALL } from "@/lib/constant"
 import { DataTable } from "./data-table"
+import Link from "next/link"
 
-export const columns: ColumnDef<any>[] = [
+export const columns: ColumnDef<Project>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -66,7 +57,8 @@ export const columns: ColumnDef<any>[] = [
         </Button>
       )
     },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("name")}</div>,
+    
+    cell: ({ row }) => <div><Link href={`/navItem/project/${encodeURIComponent(row.getValue('id'))}`}>{row.getValue("name")}</Link></div>,
   },
   {
     accessorKey: "isactive",
