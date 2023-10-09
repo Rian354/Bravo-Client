@@ -32,9 +32,9 @@ function Overview() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">5,231</div>
-            <p className="text-xs text-muted-foreground">
+            {/* <p className="text-xs text-muted-foreground">
               +20.1% from last month
-            </p>
+            </p> */}
           </CardContent>
         </Card>
         <Card>
@@ -57,9 +57,9 @@ function Overview() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">+9350</div>
-            <p className="text-xs text-muted-foreground">
+            {/* <p className="text-xs text-muted-foreground">
               +180.1% from last year
-            </p>
+            </p> */}
           </CardContent>
         </Card>
         <Card>
@@ -81,9 +81,9 @@ function Overview() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">+5,234</div>
-            <p className="text-xs text-muted-foreground">
+            {/* <p className="text-xs text-muted-foreground">
               +19% from last year
-            </p>
+            </p> */}
           </CardContent>
         </Card>
         <Card>
