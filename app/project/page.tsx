@@ -1,17 +1,12 @@
-"use client"
-import React from "react"
-import {
-  CaretSortIcon,
-  DotsHorizontalIcon,
-} from "@radix-ui/react-icons"
-import {
-  ColumnDef,
-} from "@tanstack/react-table"
+"use client";
+import React from "react";
+import { CaretSortIcon, DotsHorizontalIcon } from "@radix-ui/react-icons";
+import { ColumnDef } from "@tanstack/react-table";
 
-import axios from "axios"
+import axios from "axios";
 
-import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,10 +14,10 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { BRAVO_PROJECT_ALL } from "@/lib/constant"
-import { DataTable } from "./data-table"
-import Link from "next/link"
+} from "@/components/ui/dropdown-menu";
+import { BRAVO_PROJECT_ALL } from "@/lib/constant";
+import { DataTable } from "./data-table";
+import Link from "next/link";
 
 export const columns: ColumnDef<Project>[] = [
   {
@@ -45,7 +40,32 @@ export const columns: ColumnDef<Project>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: 'name',
+    accessorKey: "id",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Id
+          <CaretSortIcon className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+
+    cell: ({ row }) => (
+      <div>
+        <Link
+          href={`/project/${row.getValue("id")}`}
+          className="text-blue-400 hover:text-blue-200"
+        >
+          {row.getValue("id")}
+        </Link>
+      </div>
+    ),
+  },
+  {
+    accessorKey: "name",
     header: ({ column }) => {
       return (
         <Button
@@ -55,10 +75,19 @@ export const columns: ColumnDef<Project>[] = [
           Name
           <CaretSortIcon className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
-    
-    cell: ({ row }) => <div><Link href={`/navItem/project/${encodeURIComponent(row.getValue('id'))}`}>{row.getValue("name")}</Link></div>,
+
+    cell: ({ row }) => (
+      <div>
+        <Link
+          href={`/project/${row.getValue("id")}`}
+          className="text-blue-400 hover:text-blue-200 text-end"
+        >
+          {row.getValue("name")}
+        </Link>
+      </div>
+    ),
   },
   {
     accessorKey: "isactive",
@@ -71,10 +100,12 @@ export const columns: ColumnDef<Project>[] = [
           Status
           <CaretSortIcon className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("isactive") ? 'Active': 'Completed'}</div>
+      <div className="capitalize">
+        {row.getValue("isactive") ? "Active" : "Completed"}
+      </div>
     ),
   },
   {
@@ -88,7 +119,7 @@ export const columns: ColumnDef<Project>[] = [
           Email
           <CaretSortIcon className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
     cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
   },
@@ -96,7 +127,7 @@ export const columns: ColumnDef<Project>[] = [
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
-      const project = row.original
+      const project = row.original;
 
       return (
         <DropdownMenu>
@@ -109,46 +140,50 @@ export const columns: ColumnDef<Project>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(project.id)}
+              onClick={() => navigator.clipboard.writeText(project.id + "")}
             >
-              Project Id
+              <Link href={`/project/${row.getValue("id")}`}>Project Id</Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>View Project Details</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href={`/project/${row.getValue("id")}`}>
+                View Project Details
+              </Link>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      )
+      );
     },
   },
-]
+];
 
 export type Project = {
-  id: number
-  name: string
-  url_on_catalog: string
-  url_external: string
-  description: string
-  keywords: string
-  fields_of_science: string
-  isActive: Boolean
-  agency_sponsor: string
-  agency_sponsor_other: string
-  gov_contact: string
-  gov_contact_email: string
-  geographic_scope: string
-  participant_age: string
-  participation_tasks: string
-  scistarter: Boolean
-  email: string
-  start_date: Date
-  project_goals: string
-  created_at: Date
-  updated_at: Date
-}
+  id: number;
+  name: string;
+  url_on_catalog: string;
+  url_external: string;
+  description: string;
+  keywords: string;
+  fields_of_science: string;
+  isActive: Boolean;
+  agency_sponsor: string;
+  agency_sponsor_other: string;
+  gov_contact: string;
+  gov_contact_email: string;
+  geographic_scope: string;
+  participant_age: string;
+  participation_tasks: string;
+  scistarter: Boolean;
+  email: string;
+  start_date: Date;
+  project_goals: string;
+  created_at: Date;
+  updated_at: Date;
+};
 
 const page = () => {
   let data_: Project;
-let setData_: any;
+  let setData_: any;
   [data_, setData_] = React.useState<Project>({
     id: 0,
     name: "",
@@ -171,20 +206,25 @@ let setData_: any;
     project_goals: "",
     created_at: new Date(),
     updated_at: new Date(),
-  })
+  });
 
   React.useEffect(() => {
     axios.get(BRAVO_PROJECT_ALL).then((result) => {
-      setData_(result.data)
-      console.log(data_)
-    })
-  }, [])
+      setData_(result.data);
+      console.log(data_);
+    });
+  }, []);
 
   return (
-    <div className="container mx-auto py-10">
-       <DataTable columns={columns} data={data_} />
-    </div>
-  )
-}
+    <>
+      <div className="container mx-auto py-10">
+        <h2 className="text-2xl font-bold leading-7 sm:truncate sm:text-3xl m-2">
+          Projects
+        </h2>
+        <DataTable columns={columns} data={data_} />
+      </div>
+    </>
+  );
+};
 
-export default page
+export default page;
