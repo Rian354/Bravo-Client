@@ -1,5 +1,5 @@
-export const BRAVO_SERVER_URL =
-  "https://bravo-nasa-server.azurewebsites.net/v1/";
+
+export const BRAVO_SERVER_URL="https://bravo-nasa-server.azurewebsites.net/v1/";
 
 export const BRAVO_PROJECT_ALL = BRAVO_SERVER_URL + "project";
 export const BRAVO_PROJECT = BRAVO_SERVER_URL + "project/";
