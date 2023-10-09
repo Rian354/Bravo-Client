@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Bravo - Open Science Collaboration Platform
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+Welcome to Bravo, the open science collaboration platform! Bravo is designed to connect project creators with skilled collaborators, fostering efficient collaboration in the open science community. This is the frontend client for Bravo, written in NextJS
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Project Matching Algorithm**: Bravo uses an advanced algorithm to match project creators with collaborators based on skills and interests.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Comprehensive Project Database**: Our platform hosts a vast repository of open science projects, making it easy to discover and showcase initiatives.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Collaborator Profiles**: Collaborators can create detailed profiles highlighting their skills and interests, facilitating project discovery.
 
-## Learn More
+- **Built-in Messenger System**: Bravo includes a user-friendly messenger system for direct communication between project creators and collaborators.
 
-To learn more about Next.js, take a look at the following resources:
+- **Data Integration**: Bravo leverages open data from sources like citizenscience.gov to enhance project listings.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone the Bravo repository to your local machine:
+   git clone tps://github.com/Rian354/Bravo-Client.git
 
-## Deploy on Vercel
+2. Navigate to the Bravo directory:
+  cd Bravo-Client
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Install dependencies:
+  npm i
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. Start the Bravo server:
+  npm run dev
+
+## Usage
+To access Bravo, open a web browser and navigate to http://localhost:3000.
+
+Project creators can list their projects, specifying skill requirements and objectives.
+
+Collaborators can create profiles highlighting their expertise and interests.
+
+Bravo's matching algorithm will suggest ideal project-collaborator pairings.
+
+Use the built-in messenger system for direct communication and collaboration.
+
+
+## Next Steps
+Continuously gather user feedback to enhance Bravo's features and usability.
+
+Explore opportunities to expand Bravo's user base and project listings.
+
+Seek collaborations with research institutions and organizations to support open science initiatives.
+
+Consider developing a mobile app for on-the-go access and collaboration.
+
+Implement new features and technologies to enhance functionality.
+
+Optimize the platform for maximum performance.
+
+## Get in Touch
+Collaboration? Feedback? Questions? Don't hesitate to reach out to us!
+
+Rian Atri: hello@rian.fyi
+
+Saurabh Atri: srbwin@gmail.com
+
+Thank you for using Bravo Frontend! We look forward to building a more connected and collaborative open science community with you.
