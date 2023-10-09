@@ -22,13 +22,13 @@ Welcome to Bravo, the open science collaboration platform! Bravo is designed to 
    git clone tps://github.com/Rian354/Bravo-Client.git
 
 2. Navigate to the Bravo directory:
-  cd Bravo-Client
+   cd Bravo-Client
 
 3. Install dependencies:
-  npm i
+   npm install
 
 4. Start the Bravo server:
-  npm run dev
+   npm run dev
 
 ## Usage
 To access Bravo, open a web browser and navigate to http://localhost:3000.
