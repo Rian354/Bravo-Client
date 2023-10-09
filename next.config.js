@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
     reactStrictMode: true, 
     eslint: { 
       ignoreDuringBuilds: true, 
@@ -9,11 +9,9 @@ const nextConfig = {
     },
     distDir: "bravo",
     trailingSlash: true,
-    output: 'export',
+    output: "export",
     typescript: {
       // !! TBD - To be removed !!
       ignoreBuildErrors: true,
     },
 }
-
-module.exports = nextConfig
